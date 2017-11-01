@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>feIndexPage</h1>
+  <p class="from"></p>
+  <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script>
+    $.ajax({
+      url:'http://10.168.34.98:3008/index',
+      data:{"name":"xushaowei"},
+      type:'GET',
+      success:function(res){
+        console.log(res)
+        $('.from').text("这是从接口返回的数据:"+res.name)
+      }
+    })
+  </script>
+</body>
+</html>

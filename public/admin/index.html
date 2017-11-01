@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>adminIndexPage</h1>
+  <p class="from"></p>
+
+  <button class="login">登录</button>
+  <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script>
+    $.ajax({
+      url:'http://10.168.34.98:3008/users/xushaowei',
+      type:'GET',
+      data:{"name":"xushaowei"},
+      success:function(res){
+        console.log(res)
+        $('.from').text("这是从接口返回的数据"+res.name)
+      }
+    })
+    $(".login").click(function(){
+      $.ajax({
+        url:'http://10.168.34.98:3008/login',
+        type:'POST',
+        data:{
+          "username":"xushaowei",
+          "passwore":"123456"
+        },
+        success:function(res){
+          alert(res);
+          console.log(res)
+          $('.from').text("这是从接口返回的数据："+res)
+        }
+      })
+    })
+  </script>
+</body>
+</html>
