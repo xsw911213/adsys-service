@@ -14,7 +14,7 @@
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
   <script>
     $.ajax({
-      url:'http://10.168.34.98:3008/users/xushaowei',
+      url:'/users/xushaowei',
       type:'GET',
       data:{"name":"xushaowei"},
       success:function(res){
@@ -24,14 +24,14 @@
     })
     $(".login").click(function(){
       $.ajax({
-        url:'http://10.168.34.98:3008/login',
+        url:'/login',
         type:'POST',
         data:{
           "username":"xushaowei",
           "passwore":"123456"
         },
         success:function(res){
-          alert(res);
+          // alert(res);
           console.log(res)
           $('.from').text("这是从接口返回的数据："+res)
         }
