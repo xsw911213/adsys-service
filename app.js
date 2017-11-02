@@ -3,8 +3,8 @@ let app = express();
 let router = require('./service');
 
 let path = require('path')
-let fePath = path.join(__dirname,"./static/fe");
-let adminPath = path.join(__dirname,"./static/admin");
+let fePath = path.join(__dirname,"./public/fe");
+let adminPath = path.join(__dirname,"./public/admin");
 
 // console.log(router)
 // 服务地址

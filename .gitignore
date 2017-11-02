@@ -11,6 +11,7 @@
 /dist/**
 /dist-dev/**
 /src/lib/**
+/admin-src/node_modules/**
 package-lock.json
 ######################
 # SASS
