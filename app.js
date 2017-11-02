@@ -22,5 +22,4 @@ for(let i = 0 ; i < services.length ; i++){
   app.all(services[i].path, services[i].fun);
 }
 
-
 app.listen(3008);
