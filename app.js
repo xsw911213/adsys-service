@@ -1,18 +1,39 @@
+
 let express = require('express');
 let bodyParser = require('body-parser');
 let app = express();
 
+let cors = require('cors')
+
 let services = require('./service')
 
+// path模块
 let path = require('path')
 let fePath = path.join(__dirname,"./public/fe");
 let adminPath = path.join(__dirname,"./public/admin");
+
+// 允许跨域-exprexx
+// app.all('*',function (req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+//   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+
+//   if (req.method == 'OPTIONS') {
+//     res.send(200); /让options请求快速返回/
+//   }
+//   else {
+//     next();
+//   }
+// });
+// 允许跨域-cors模块
+app.use(cors());
 
 // 静态html文件入口地址
 app.use('/', express.static(fePath));
 app.use('/admin', express.static(adminPath));
 
-app.use(bodyParser.json({limit: '1mb'}));  //这里指定参数使用 json 格式
+// 解析请求body的参数
+app.use(bodyParser.json());  //这里指定参数使用 json 格式
 app.use(bodyParser.urlencoded({
   extended: true
 }));

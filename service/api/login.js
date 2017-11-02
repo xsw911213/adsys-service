@@ -8,7 +8,7 @@ let loginService = function (req,res){
   console.log(req.body)
   let resData = {
     status : "success",
-    path : "/table",
+    path : "/main",
     userinfo : {
       avatar:"https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png",
       id : 1,
