@@ -12,6 +12,8 @@ let path = require('path')
 let fePath = path.join(__dirname,"./public/fe");
 let adminPath = path.join(__dirname,"./public/admin");
 
+
+
 // 允许跨域-exprexx
 // app.all('*',function (req, res, next) {
 //   res.header('Access-Control-Allow-Origin', '*');
