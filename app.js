@@ -1,4 +1,3 @@
-
 let express = require('express');
 let bodyParser = require('body-parser');
 let app = express();
@@ -31,6 +30,9 @@ let adminPath = path.join(__dirname,"./public/admin");
 app.use(cors());
 
 // 静态html文件入口地址
+// app.use('/', function(req,res){
+//   console.log(req.url);
+// });
 app.use('/', express.static(fePath));
 app.use('/admin', express.static(adminPath));
 
