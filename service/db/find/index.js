@@ -6,7 +6,7 @@ var db = mongoose.createConnection('mongodb://127.0.0.1:27017/test');
 // 设置数据类型
 var monSchema = new mongooose.Schema({
     name:{type:String,default:"name"},
-    age：{type:Number},
+    age:{type:Number},
     sex:{type:String}
 });
 // 选择集合
