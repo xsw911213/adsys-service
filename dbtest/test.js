@@ -35,6 +35,22 @@ let collection = 'menu'
 // db.insert(dbPth, schemaOption, collection, data);
 
 // 删
+
+// let delConditon = {name:"test3"};
+// db.remove(dbPth, schemaOption, collection, delConditon)
+
+// 更新数据的时候只能更新原有的文档，新添加的文档并不能跟心
+// 如：原文档为：{name:'test',age:25}，更新的时候只能更改name和age字段，如果新添加sex字段的话，并不能添加进去
+// let oldValue = {
+//   name:'test1'
+// }
+
+// let newData = {
+//   name: 'xushaowei1',
+//   age: 26,
+//   sex: '男'
+// }
+
 // let delCondition = {name:"test3"};
 // db.remove(dbPth, schemaOption, collection, delCondition)
 
@@ -53,6 +69,7 @@ let collection = 'menu'
 // db.update(dbPth, schemaOption, collection, oldValue, newData)
 // 更新数据的时候只能更新原有的文档，新添加的文档并不能跟心
 // 如：原文档为：{name:'test',age:25}，更新的时候只能更改name和age字段，如果新添加sex字段的话，并不能添加进去
+
 
 
 
