@@ -5,7 +5,7 @@
 // schemaOption: 数据集数据模型
 // collection: 集合名称
 // data: 插入的数据
-let insertFun = function(dbPth, schemaOption, collection, data){
+let insertFun = function(dbPth, schemaOption, collection, data,errFun=console.log, successFun=console.log){
   
   let mongoose = require('mongoose');
   // 链接数据库
@@ -22,12 +22,13 @@ let insertFun = function(dbPth, schemaOption, collection, data){
   // 选择集合
   let monModel = db.model(collection, monSchema);
   // 插入数据
-  monModel.create(data, function (error, docs) {
-    if(error) {
-      console.log(error);
-    } else {
-      console.log(docs);
-      console.log('插入成功');
+  monModel.create(data, function (error, result) {
+    if(error){
+      console.log('插入失败！');
+      errFun(error)
+    }else{
+      console.log('插入成功！');
+      successFun(result)
     }
     db.close();
   })

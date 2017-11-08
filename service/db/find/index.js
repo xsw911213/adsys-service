@@ -1,37 +1,45 @@
 // 引入模块
-var mongoose = require('mongoose');
+
 // 连接数据库
-var db = mongoose.createConnection('mongodb://127.0.0.1:27017/test');
-// cosole.log(db);
-// 设置数据类型
-var monSchema = new mongooose.Schema({
-    name:{type:String,default:"name"},
-    age:{type:Number},
-    sex:{type:String}
-});
-// 选择集合
-var monModel = db.model('user',monSchema);
-var content = {name:"姓名2"};
-var field = {name:1,age:1,sex:1};
+// dbPth: 数据库地址
+// schemaOption: 数据集数据模型
+// collection: 集合名称
+// conditions: 查询条件
+// fields: 返回结果的字段过滤条件
+// options: 游标
+let findFun = function(dbPth, schemaOption, collection, conditions, fields, options, errFun=console.log, successFun=console.log) {
+  
+  let mongoose = require('mongoose');
+  // 链接数据库
+  // let db = mongoose.connect(dbPth);
+  let db = mongoose.createConnection(dbPth.join(''))
+  db.on('error', function(error) {
+    console.log('连接 '+dbPth[1]+' 数据库的 '+collection+' 集合失败：' + error);
+    db.close();
+  });
 
+  console.log('连接 ' + dbPth[1] + ' 数据库的 ' + collection + ' 集合成功');
+  // 设置数据类型
+  let monSchema = new mongoose.Schema(schemaOption);
+  // 选择集合
+  let monModel = db.model(collection, monSchema);
+
+  // model.find(Conditions,fields,options,callback(err, doc));
+  monModel.find(conditions, fields, options, function (err,result) {
+    if(err){
+      console.log('查询失败！');
+      errFun(err)
+    }else{
+      console.log('查询成功！');
+      successFun(result)
+    }
+    db.close();
+  });
+
+}
+
+module.exports = findFun;
 // find(Conditions,fields,callback);
-// $lt (小于<)
-// $lte (小于等于<=)
-// $gt (大于>)
-// $gte (大于等于>=)
-// $ne (不等于,不包含!=)
-// $in (包含)
-// $or (查询多个键值的任意给定值)
-// $exists (判断某些属性是否存在)
-// $all (全部)
 
 
-// model.find(Conditions,fields,options,callback(err, doc));
-monModel.find(content,field,function(err,result){
-  if(err){
-    console.log(err);
-  }else{
-    console.log(result);
-  }
-  db.close();
-});
+

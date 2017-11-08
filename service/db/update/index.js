@@ -28,10 +28,11 @@ let updateFun = function (dbPth, schemaOption, collection, oldValue, newData){
   // 更新数据
   monModel.update(oldValue,newData,function(err,result){
     if(err){
-      console.log(err);
+      console.log('更新失败！');
+      errFun(err)
     }else{
-      console.log(result)
-      console.log("修改成功！");
+      console.log('更新成功！');
+      successFun(result)
     }
     db.close();
   });

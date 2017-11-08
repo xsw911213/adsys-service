@@ -23,10 +23,11 @@ let removeFun = function (dbPth, schemaOption, collection, delConditions){
   // 删除数据
   monModel.remove(delConditions,function(err,result){
     if(err){
-      console.log(err);
+      console.log('删除失败！');
+      errFun(err)
     }else{
-      console.log(result)
-      console.log("删除成功");
+      console.log('删除成功！');
+      successFun(result)
     }
     db.close();
   });

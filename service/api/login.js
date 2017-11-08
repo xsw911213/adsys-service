@@ -1,23 +1,61 @@
 // 引入定义变量
+let db = require('../db');
+let dbPth = require('../../config').dbPth;
+let schemaOptions = require("../db/schemaOptions");
 
-function gerUserInfo(user){
-  if(user.username === 'master' && user.password === '123456'){
-    return {
-      status : "success",
-      path : "/main",
-      userinfo : {
-        avatar:"https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png",
-        id : '01',
-        name : "张宏宇",
-        username : "admin",
-        role : 'master'
+
+function gerUserInfo(userinfoRromClient,res){
+  let collection = 'users';
+
+  let condidtion = { username: userinfoRromClient.username };
+  
+  let fields = {
+     _id: false,
+    username: true,
+    password: true,
+    role: true,
+    name: true,
+    userid: true,
+    avatar: true
+  }
+
+  let resData = {}
+
+  function error(err){
+    console.log(err)
+  }
+  // 数据库查询成功，完成验证
+  function succ(result){
+    console.log(result)
+
+    let userinfoRromDB = result[0];
+
+    if(userinfoRromDB.password == userinfoRromClient.password){
+      console.log('验证通过');
+      resData =  {
+        status : "success",
+        path : "/main",
+        userinfo : {
+          avatar : userinfoRromDB.avatar,
+          userid : userinfoRromDB.userid,
+          name : userinfoRromDB.name,
+          username : userinfoRromDB.username,
+          role : userinfoRromDB.role
+        }
       }
-    }
-  } else {
-    return {
-      status : "fail"
+
+      res.json(resData)
+    }else{
+      console.log('验证没通过');
+        let errorObj = {
+          status : 400,
+          message: "用户名或密码错误"
+        }
+        res.status(errorObj.status).json(errorObj)
     }
   }
+  
+  db.find(dbPth, schemaOptions.user, collection, condidtion, fields, null, error, succ);
 }
 
 let loginService = function (req,res){
@@ -26,16 +64,9 @@ let loginService = function (req,res){
   console.log(req.method)
   console.log(req.params)
   console.log(req.body)
-  let resData = gerUserInfo(req.body)
-  if(resData.status === 'success'){
-    res.json(resData)
-  } else {
-    let errorObj = {
-      status : 400,
-      message: "用户名或密码错误"
-    }
-    res.status(errorObj.status).json(errorObj)
-  }
+
+  gerUserInfo(req.body,res)
+
   
 }
 module.exports = loginService;
