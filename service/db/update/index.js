@@ -7,7 +7,7 @@
 // collection: 集合名称
 // oldValue: 查找要修改的数据的值
 // newData: 新修改的数据
-let updateFun = function (dbPth, schemaOption, collection, oldValue, newData){
+let updateFun = function (dbPth, schemaOption, collection, oldValue, newData, errFun=console.log ,successFun=console.log){
   let mongoose = require('mongoose');
   // 链接数据库
   // let db = mongoose.connect(dbPth);

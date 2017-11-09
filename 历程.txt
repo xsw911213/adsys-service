@@ -1,0 +1,9 @@
+1、架构
+
+2、app.js
+
+3、public
+
+4、service
+  4.1  service/api
+  4.2  service/db

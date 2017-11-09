@@ -42,6 +42,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+
 // 加载服务
 for(let i = 0 ; i < services.length ; i++){
   app.all(services[i].path, services[i].fun);

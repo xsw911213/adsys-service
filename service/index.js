@@ -2,6 +2,8 @@
 
 let loginService = require('./api/login');
 let menuService = require('./api/menu');
+let personalSetting = require('./api/personalSetting');
+let uploadimg = require('./api/uploadimg');
 
 let services = [
   {
@@ -11,7 +13,16 @@ let services = [
   {
     path: '/menu',
     fun: menuService
+  },
+  {
+    path: '/personalsetting',
+    fun: personalSetting
+  },
+  {
+    path: '/uploadimg',
+    fun: uploadimg
   }
+
 ]
 
 

@@ -4,7 +4,7 @@
 // schemaOption: 数据集数据模型
 // collection: 集合名称
 // data: 删除的数据
-let removeFun = function (dbPth, schemaOption, collection, delConditions){
+let removeFun = function (dbPth, schemaOption, collection, delConditions, errFun=console.log ,successFun=console.log){
   let mongoose = require('mongoose');
   // 链接数据库
   // let db = mongoose.connect(dbPth);
