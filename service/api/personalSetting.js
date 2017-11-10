@@ -3,10 +3,10 @@ let dbPth = require('../../config').dbPth;
 let schemaOptions = require("../db/schemaOptions");
 
 
-function gerUserInfo(userinfoRromClient,res){
+function getUserInfo(userinfoRromClient,res){
   let collection = 'users';
 
-  let condidtion = { username: userinfoRromClient.username };
+  let condidtion = { userid: userinfoRromClient.userid };
   
   let fields = {
      _id: false,
@@ -56,7 +56,6 @@ function gerUserInfo(userinfoRromClient,res){
   db.find(dbPth, schemaOptions.user, collection, condidtion, fields, null, error, succ);
 }
 
-
 function setUserInfo(userinfoRromClient,res){
   let collection = 'users';
   
@@ -90,8 +89,6 @@ function setUserInfo(userinfoRromClient,res){
 
     res.json(resData)
   }
-  console.log(oldValue);
-  console.log(newValue);
   
   db.update(dbPth, schemaOptions.user, collection, oldValue, newValue, error, succ);
 }
@@ -104,7 +101,7 @@ let personalSetting = function (req,res){
   console.log(req.query)
   console.log(req.body)
   if(req.method === 'GET'){
-    gerUserInfo(req.query,res)
+    getUserInfo(req.query,res)
   }else if (req.method === 'PUT'){
     setUserInfo(req.body,res)
   }

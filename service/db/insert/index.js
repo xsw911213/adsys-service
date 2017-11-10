@@ -5,7 +5,7 @@
 // schemaOption: 数据集数据模型
 // collection: 集合名称
 // data: 插入的数据
-let insertFun = function(dbPth, schemaOption, collection, data,errFun=console.log, successFun=console.log){
+let insertFun = function(dbPth, schemaOption, collection, data, errFun=console.log, successFun=console.log){
   
   let mongoose = require('mongoose');
   // 链接数据库

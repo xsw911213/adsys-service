@@ -9,7 +9,6 @@ function getMentFun(queryFromClent,res){
   
   let condidtion = { role: queryFromClent.role };
   // condidtion = {};
-  console.log('ccc',condidtion);
   
   let fields = {
     _id: false,
@@ -27,7 +26,6 @@ function getMentFun(queryFromClent,res){
     res.json(result[0].menu)
   }
   
-  console.log(dbPth)
   db.find(dbPth, schemaOptions.menu, collection, condidtion, fields, null, error, succ);
 }
 
