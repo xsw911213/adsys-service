@@ -8,6 +8,7 @@ let services = require('./service')
 
 // path模块
 let path = require('path')
+
 let fePath = path.join(__dirname,"./public/fe");
 let adminPath = path.join(__dirname,"./public/admin");
 

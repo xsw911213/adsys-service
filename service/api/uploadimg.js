@@ -25,7 +25,7 @@ let uploadimgFun = function (req, res){
   // 文件名
   let fileName = `${sha1(req.query.fileName)}.${req.query.fileName.split('.').pop()}`
 
-  console.log(fileName)
+  // console.log(fileName)
 
   let mac = new qiniu.auth.digest.Mac(accessKey, secretKey)
   let putPolicy = new qiniu.rs.PutPolicy({

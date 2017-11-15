@@ -7,11 +7,13 @@ let user = {
   userid: {type: Number},
   avatar: {type: String}
 }
+
 // menu集合  数据模型
 let menu = {
   role: {type: String},
   menu: {type: Array, default: []}
 }
+
 // hotel集合  数据模型
 let hotel = {
   // id: {type: Number},
@@ -22,6 +24,13 @@ let hotel = {
   // delete: {type: Boolean, default: false}
 }
 
+// beginAd 集合数据模型
+let beginAd = {
+  date:{type: String},
+  time:{type: String},
+  adimg:{type: String},
+  link:{type: String,default: null},
+}
 
 
 
@@ -30,7 +39,8 @@ let hotel = {
 let schemaOption = {
   user,
   menu,
-  hotel
+  hotel,
+  beginAd
 }
 
 module.exports = schemaOption;

@@ -5,8 +5,9 @@ let menuService = require('./api/menu');
 let personalSetting = require('./api/personalSetting');
 let hotelSetting = require('./api/hotelSetting');
 let accountlSetting = require('./api/accountSetting');
+let beginAdSetting = require('./api/beginAdSetting');
 
-
+// 上传图片服务
 let uploadimg = require('./api/uploadimg');
 
 
@@ -26,6 +27,10 @@ let services = [
   {
     path: '/hotelsetting',
     fun: hotelSetting
+  },
+  {
+    path: '/beginadsetting',
+    fun: beginAdSetting
   },
   {
     path: '/accountsetting',
