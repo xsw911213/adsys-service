@@ -72,19 +72,19 @@ let initMenu = function () {
           ]
         },
         {
-          "path": "/ad",
+          "path": "/",
           "name": "广告投放",
           "children": [
             {
-              "path": "/begin",
+              "path": "/beginAd",
               "name": "开屏广告"
             },
             {
-              "path": "/top",
+              "path": "/topAd",
               "name": "上滚动条"
             },
             {
-              "path": "/bottom",
+              "path": "/bottomAd",
               "name": "下固定广告位"
             }
           ]

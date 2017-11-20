@@ -2,6 +2,9 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let app = express();
 
+let config = require('./config')
+console.log(config);
+
 let cors = require('cors')
 
 let services = require('./service')
@@ -49,4 +52,4 @@ for(let i = 0 ; i < services.length ; i++){
   app.all(services[i].path, services[i].fun);
 }
 
-app.listen(3008);
+app.listen(config.port);
