@@ -26,6 +26,7 @@ let collection = 'menu'
 //   {name: "test10",age: 18}
 // ]
 
+
 // 增
 // dbPth: 数据库地址
 // schemaOption: 数据集数据模型
@@ -33,6 +34,7 @@ let collection = 'menu'
 // data: 插入的数据
 // db.insert(dbPth, schemaOption, collection, data);
 // db.insert(dbPth, schemaOption, collection, data);
+
 
 // 删
 

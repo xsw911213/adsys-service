@@ -3,12 +3,15 @@ let db = require('../db');
 let dbPth = require('../../config').dbPth;
 let schemaOptions = require("../db/schemaOptions");
 
+require('./components/date')
+
 let requestData = {};
 
 function getBeginAdInfo(userinfoRromClient, res) {
   let collection = 'beginads';
-
-  let condidtion = {};
+  let now = new Date().getYMD();
+  
+  let condidtion = {date:{$gte: now}};
 
   // name: {type: String},
   // contact: {type: String},
@@ -68,17 +71,42 @@ function setBeginAdInfo(userinfoRromClient, res) {
   db.insert(dbPth, schemaOptions.beginAd, collection, data, error, succ);
 }
 
+function deleteBeginAdById(userinfoRromClient, res){
+  let collection = 'beginads';
+  console.log(userinfoRromClient)
+
+  let delConditions = userinfoRromClient
+
+  function error(err){
+    console.log(collection, err)
+  }
+  // 数据库查询成功
+  function succ(result){
+    console.log(collection, result)
+
+    resData =  {
+      status : "success"
+    }
+    res.json(resData)
+  }
+
+
+  db.remove(dbPth, schemaOptions.beginAd, collection, delConditions, error ,succ)
+}
+
 let beginAdSetting = function (req, res) {
   requestData = req;
-  console.log(req.url)
-  console.log(req.method)
-  console.log(req.params)
-  console.log(req.query)
-  console.log(req.body)
+  // console.log(req.url)
+  // console.log(req.method)
+  // console.log(req.params)
+  // console.log(req.query)
+  // console.log(req.body)
   if (req.method === 'GET') {
     getBeginAdInfo(req.query, res)
   } else if (req.method === 'POST') {
     setBeginAdInfo(req.body, res)
+  } else if(req.method === 'DELETE'){
+    deleteBeginAdById(req.query, res)
   }
 }
 
