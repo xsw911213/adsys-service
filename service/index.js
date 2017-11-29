@@ -6,6 +6,9 @@ let personalSetting = require('./api/personalSetting');
 let hotelSetting = require('./api/hotelSetting');
 let accountlSetting = require('./api/accountSetting');
 let beginAdSetting = require('./api/beginAdSetting');
+let topAdSetting = require('./api/topAdSetting');
+
+console.log(topAdSetting)
 
 // 上传图片服务
 let uploadimg = require('./api/uploadimg');
@@ -31,6 +34,10 @@ let services = [
   {
     path: '/beginadsetting',
     fun: beginAdSetting
+  },
+  {
+    path: '/topadsetting',
+    fun: topAdSetting
   },
   {
     path: '/accountsetting',

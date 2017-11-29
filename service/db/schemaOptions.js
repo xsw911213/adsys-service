@@ -29,10 +29,16 @@ let beginAd = {
   date:{type: String},
   time:{type: String},
   adimg:{type: String},
-  link:{type: String,default: null},
+  link:{type: String, default: null},
 }
 
-
+// topAd 集合数据模型
+let topAd = {
+  date:{type: String},
+  time:{type: String},
+  adimg:{type: Array, default: []},
+  link:{type: Array, default: []},
+}
 
 
 
@@ -40,7 +46,8 @@ let schemaOption = {
   user,
   menu,
   hotel,
-  beginAd
+  beginAd,
+  topAd
 }
 
 module.exports = schemaOption;
