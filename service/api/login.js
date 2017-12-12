@@ -68,6 +68,5 @@ let loginService = function (req,res){
 
   gerUserInfo(req.body,res)
 
-  
 }
 module.exports = loginService;

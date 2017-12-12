@@ -100,7 +100,7 @@ let initMenu = function () {
           "name": "",
           "children": [
             {
-              "path": "/main",
+              "path": "/mainAd",
               "name": "主页"
             }
           ]
@@ -110,7 +110,7 @@ let initMenu = function () {
           "name": "广告投放",
           "children": [
             {
-              "path": "/begin",
+              "path": "/beginAd",
               "name": "开屏广告"
             },
             {
@@ -118,7 +118,7 @@ let initMenu = function () {
               "name": "上滚动条"
             },
             {
-              "path": "/bottom",
+              "path": "/bottomAd",
               "name": "下固定广告位"
             }
           ]

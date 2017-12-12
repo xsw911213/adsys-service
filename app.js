@@ -49,7 +49,7 @@ app.use(bodyParser.urlencoded({
 
 // 加载服务
 for(let i = 0 ; i < services.length ; i++){
-  app.all(services[i].path, services[i].fun);
+  app.all("/api"+services[i].path, services[i].fun);
 }
 
 app.listen(config.port);
