@@ -100,7 +100,7 @@ let initMenu = function () {
           "name": "",
           "children": [
             {
-              "path": "/main",
+              "path": "/mainAd",
               "name": "主页"
             }
           ]
