@@ -7,6 +7,7 @@ let hotelSetting = require('./api/hotelSetting');
 let accountlSetting = require('./api/accountSetting');
 let beginAdSetting = require('./api/beginAdSetting');
 let topAdSetting = require('./api/topAdSetting');
+let getAd = require('./api/getAdRequestFromClient')
 
 console.log(topAdSetting)
 
@@ -46,6 +47,10 @@ let services = [
   {
     path: '/uploadimg',
     fun: uploadimg
+  },
+  {
+    path: '/getad',
+    fun: getAd
   }
 
 ]
