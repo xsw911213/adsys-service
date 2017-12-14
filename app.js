@@ -14,6 +14,7 @@ let path = require('path')
 
 let fePath = path.join(__dirname,"./public/fe");
 let adminPath = path.join(__dirname,"./public/admin");
+let assetPath = path.join(__dirname,"./public/static")
 
 
 
@@ -39,6 +40,7 @@ app.use(cors());
 // });
 app.use('/', express.static(fePath));
 app.use('/admin', express.static(adminPath));
+app.use('/static', express.static(assetPath));
 
 // 解析请求body的参数
 app.use(bodyParser.json());  //这里指定参数使用 json 格式
