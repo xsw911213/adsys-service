@@ -16,6 +16,7 @@ function getAds(queryFromClent,res){
 
   let collection = 'beginads';
 
+  // 除了_id以外要么全是0，要么全是1。如果不需要某些字段，则不为其设置
   const fields = {
     _id: false,
     // date: false,
