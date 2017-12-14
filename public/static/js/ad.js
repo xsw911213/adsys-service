@@ -7,7 +7,7 @@ $(document).ready(function(){
   
   $('body').append('<div id="ad-fixed-bg"><a id="close-begin-ad"></a><a id="ad-img-a"><img id="ad-img" src="" alt=""></a></div>'
   +'<style>'
-  +'#ad-fixed-bg{position: fixed;width: 100%;height: 100%;top: 0;left: 0;background-color: rgba(0,0,0,.8);}'
+  +'#ad-fixed-bg{position: fixed;width: 100%;height: 100%;top: 0;left: 0;background-color: rgba(0,0,0,.8);z-inde:1000;}'
   +'#ad-img-a{display: block;position: absolute;width: 240px;height: 360px;top: 0;bottom: 50px;left: 0;right: 0;margin: auto;background-color: #fff;}'
   +'#ad-img{width: 100%;height: 100%;}'
   +'#close-begin-ad{display: block;position: absolute;width: 100%;height: 100%;top: 0;left: 0;}'
