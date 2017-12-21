@@ -1,12 +1,12 @@
 
 // http://47.93.242.6:3008/api/getad
 
-$("#menu-tabs-container").css("display","none");
-$(".shopheader-notice").css("display","none");
-$("#header").css({'height':"80px"});
-$("#header").html("即将上线的广告位");
-$(".shop").css({'height':"56px","top":"80px"})
-$(".shopheader-main").css({'top':"82px"})
+// $("#menu-tabs-container").css("display","none");
+// $(".shopheader-notice").css("display","none");
+// $("#header").css({'height':"80px"});
+// $("#header").html("即将上线的广告位");
+// $(".shop").css({'height':"56px","top":"80px"})
+// $(".shopheader-main").css({'top':"82px"})
 
 $(document).ready(function(){
 
