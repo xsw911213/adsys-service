@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
 
-  $("#menu-tabs-container").remove();
+  // $("#menu-tabs-container").remove();
 
   $.ajax({
     url:'http://adsys.xushaoweisite.com/api/getad',
