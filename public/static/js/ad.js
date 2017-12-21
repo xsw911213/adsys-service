@@ -1,9 +1,11 @@
 
 // http://47.93.242.6:3008/api/getad
 
-$(document).ready(function(){
+$("#menu-tabs-container").css("display","none");
+$(".shopheader-notice").css("display","none");
 
-  $("#menu-tabs-container").remove();
+$(document).ready(function(){
+  
   $('#asidewrap').css({'top':"136px"});
   $('#mainwrap').css('margin-top',"127px");
 
