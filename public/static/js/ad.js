@@ -3,7 +3,9 @@
 
 $(document).ready(function(){
 
-  // $("#menu-tabs-container").remove();
+  $("#menu-tabs-container").remove();
+  $('#asidewrap').css('top',"136px");
+  $('#mainwrap').css('margin-top',"127px");
 
   $.ajax({
     url:'http://adsys.xushaoweisite.com/api/getad',
