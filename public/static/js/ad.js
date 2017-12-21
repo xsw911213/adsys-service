@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
 
-  $("#menu-tabs-container").html("即将上线的广告位")
+  $("#menu-tabs-container").remove();
 
   $.ajax({
     url:'http://adsys.xushaoweisite.com/api/getad',
