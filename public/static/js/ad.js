@@ -3,9 +3,12 @@
 
 $("#menu-tabs-container").css("display","none");
 $(".shopheader-notice").css("display","none");
+$("#header").css({'height':"86px"})
+$(".shop").css({'height':"56px","top":"80px"})
+$(".shopheader-main").css({'top':"82px"})
 
 $(document).ready(function(){
-  
+
   $('#asidewrap').css({'top':"136px"});
   $('#mainwrap').css('margin-top',"127px");
 
