@@ -3,6 +3,8 @@
 
 $(document).ready(function(){
 
+  $("#menu-tabs-container").html("即将上线的广告位")
+
   $.ajax({
     url:'http://adsys.xushaoweisite.com/api/getad',
     data:{},
@@ -33,9 +35,6 @@ $(document).ready(function(){
   $('#close-begin-ad').bind('click',function(){
     $('#ad-fixed-bg').hide();
   })
-
-
-  alert(sharedata.title)
 
 })
 
