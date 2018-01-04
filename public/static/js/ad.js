@@ -26,13 +26,14 @@ $(document).ready(function(){
     +'#close-begin-ad{display: block;position: absolute;width: 100%;height: 100%;top: 0;left: 0;}'
     +'</style>')
 
-    // 上滚动条
-    $("#header").html('<div class="swiper-container" style="width: 100%;height: 80px;">'
-      +'<div id="ad-banner" class="swiper-wrapper">'
-        +'<div class="swiper-slide"><a href=""><img src="" style="width:100%;height:100%;"/></a></div>'
-        +'<div class="swiper-slide"><a href=""><img src="" style="width:100%;height:100%;"/></a></div>'
-      +'</div>'
-    +'</div>')
+    var adHeight = $(window).width() * 80 / 414;
+
+    $("#header").html('<div class="swiper-container" style="width: 100%;height: '+adHeight+'px;">'
+	      +'<div id="ad-banner" class="swiper-wrapper">'
+		// +'<div class="swiper-slide"><a href=""><img src="" style="width:100%;height:100%;"/></a></div>'
+		// +'<div class="swiper-slide"><a href=""><img src="" style="width:100%;height:100%;"/></a></div>'
+	      +'</div>'
+	    +'</div>')
   }
 
   var defaultTopAd = {

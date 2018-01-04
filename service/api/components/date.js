@@ -1,7 +1,10 @@
 
 
 Date.prototype.getYMD = function(time=new Date()){
-  return `${time.getFullYear()}-${time.getMonth()+1}-${time.getDate()}`
+  let year = time.getFullYear();
+  let month = time.getMonth() > 8 ? time.getMonth() + 1 : '0'+(time.getMonth() + 1);
+  let day = time.getDate() > 9 ? time.getDate() : '0'+time.getDate()
+  return `${year}-${month}-${day}`
 }
 
 
