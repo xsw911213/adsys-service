@@ -21,7 +21,7 @@ let initUsers = function () {
       "username": "master",
       "password": "zhang123456",
       "role": "master",
-      "name": "张宏宇",
+      "name": "大宇哥",
       "userid": 1,
       "avatar": "https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png"
     },
