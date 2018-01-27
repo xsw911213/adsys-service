@@ -60,6 +60,7 @@ $(document).ready(function(){
     type:'GET',
     success:function(res){
       console.log(res)
+      $('.top-btn2').remove();
       if(res.status === 'success'){
         insertad();
         var data = res.data;
