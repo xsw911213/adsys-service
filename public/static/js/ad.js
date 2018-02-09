@@ -18,13 +18,22 @@ $(document).ready(function(){
 
   function insertad(){
     // 开屏广告
-    $('body').append('<div id="ad-fixed-bg"><a id="close-begin-ad"></a><p id="promot">点击空白处即可关闭...（<span id="second">5</span>秒后自动关闭）</p></p><a id="ad-img-a" href=""><img id="ad-begin-img" src="" alt=""></a></div>'
+    $('body').append('<div id="ad-fixed-bg">'
+    +'<p id="promot"><span id="second">5</span>秒后跳过</p>'
+    +'<a id="ad-img-a">'
+      +'<img id="ad-begin-img" src="" alt="">'
+      +' <object><a id="close-begin-ad"></a></objecj>'
+    +'</a>'
+    +'</div>'
+
     +'<style>'
-    +'#promot{position: absolute;right:0;color:#fff;font-size:12px;}'
-    +'#ad-fixed-bg{position: fixed;width: 100%;height: 100%;top: 0;left: 0;background-color: rgba(0,0,0,.8);z-index:9999;}'
-    +'#ad-img-a{display: block;position: absolute;width: 240px;height: 360px;top: 0;bottom: 50px;left: 0;right: 0;margin: auto;background-color: #fff;}'
+    +'#promot{position: absolute;top:10px;right:10px;color:#fff;font-size:16px;}'
+    +'#ad-fixed-bg{position: fixed;width: 100%;height: 100%;top: 0;left: 0;background-color: rgba(0,0,0,.9);z-index:9999;}'
+    +'#ad-img-a{display: inline-block;position: absolute;width: 300px;height: 450px;top: 0;bottom: 50px;left: 0;right: 0;margin: auto;background-color: #fff;}'
     +'#ad-begin-img{width: 100%;height: 100%;}'
-    +'#close-begin-ad{display: block;position: absolute;width: 100%;height: 100%;top: 0;left: 0;}'
+    +'#close-begin-ad{display: block;position: absolute;width: 24px;height: 24px;top: -12px;right: -12px;border-radius: 50%;background-color: #7e7b7b; -webkit-transform: rotate(45deg); transform: rotate(45deg);}'
+    +'#close-begin-ad::before{content: ""; display: block; position: absolute; width: 2px;height: 18px;background-color: #fff;left: 0;right: 0;top: 0;bottom: 0;margin: auto;}'
+    +'#close-begin-ad::after{content: ""; display: block; position: absolute; width: 18px;height: 2px;background-color: #fff;left: 0;right: 0;top: 0;bottom: 0;margin: auto;}'
     +'</style>')
 
     var adHeight = $(window).width() * 80 / 414;
@@ -51,6 +60,7 @@ $(document).ready(function(){
     type:'GET',
     success:function(res){
       console.log(res)
+      $('.top-btn2').remove();
       if(res.status === 'success'){
         insertad();
         var data = res.data;
@@ -62,6 +72,7 @@ $(document).ready(function(){
           
           $('#ad-begin-img').attr('src',beginAd.adimg)
           $('#ad-img-a').attr('href',beginAd.link)
+          //$('#ad-img-a').attr('href','http://www.baidu.com')
         }else if(data.beginAd.length === 0){
           // 如果没有开屏广告,添加默认广告
           $('#ad-begin-img').attr('src','http://oz4rno8dv.bkt.clouddn.com/e459954134a6feeca39788f78be13506ecda7227.png')
@@ -101,9 +112,11 @@ $(document).ready(function(){
     }
   })
 
-  $('#close-begin-ad').live('click',function(){
+  $('#close-begin-ad').live('click',function(event){
     $('#ad-fixed-bg').hide();
     clearInterval(djs);
+    event.stopPropagation();
+    return false;
   })
   var time = 5;
   var djs = setInterval(function(){

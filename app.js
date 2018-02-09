@@ -2,19 +2,19 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let app = express();
 
-let config = require('./config')
-console.log(config);
+let config = require('./config');
+// console.log(config);
 
-let cors = require('cors')
+let cors = require('cors');
 
-let services = require('./service')
+let services = require('./service');
 
 // path模块
-let path = require('path')
+let path = require('path');
 
 let fePath = path.join(__dirname,"./public/fe");
 let adminPath = path.join(__dirname,"./public/admin");
-let assetPath = path.join(__dirname,"./public/static")
+let assetPath = path.join(__dirname,"./public/static");
 
 
 
